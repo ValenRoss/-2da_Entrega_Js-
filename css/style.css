@@ -7,11 +7,13 @@ main{
     justify-content: center;
     align-items: center;
     h1{
-        color: greenyellow;
+        color: rgb(24, 37, 4);
     }
 }
 #contenedorDeProductos{
-    display: flex;
+    display: grid;
+    grid: repeat(auto-fit, minmax(800px,1fr));
+    width: 100%;
     justify-content: center;
     gap: 40px;
     padding-top: 200px;
