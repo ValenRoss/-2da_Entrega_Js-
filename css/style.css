@@ -12,14 +12,16 @@ main{
 }
 #contenedorDeProductos{
     display: grid;
-    grid: repeat(auto-fit, minmax(800px,1fr));
-    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(600px,1fr));
+    width: 80%;
+    margin: auto;
+    height: 100%;
     justify-content: center;
     gap: 40px;
     padding-top: 200px;
 }
 #card{
-    width: 100%;
+    width: 250px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -27,6 +29,9 @@ main{
     background-color: antiquewhite;
     padding: 5px;
     border-radius: 10px;
+    img{
+        width: 250px;
+    }
     p{
         display: flex;
         justify-content: center;

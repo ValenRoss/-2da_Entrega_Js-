@@ -11,15 +11,15 @@ class producto {
     }
 }
 const kit1 = new producto(1,"Kit Supervivencia1",10000,"./assets/image1.png")
-const kit2 = new producto(2,"Kit Supervivencia2",10000,"./assets/image1.png")
-const kit3 = new producto(3,"Kit Supervivencia3",10000,"./assets/image1.png")
+const Machete = new producto(2,"Machete Kill Zombie",50000,"./assets/image2.png")
+const Winchester = new producto(3,"Winchester",10000,"./assets/image3.png")
 const kit4 = new producto(4,"Kit Supervivencia4",10000,"./assets/image1.png")
 const kit5 = new producto(5,"Kit Supervivencia5",10000,"./assets/image1.png")
 const kit6 = new producto(6,"Kit Supervivencia6",10000,"./assets/image1.png")
 const kit7 = new producto(7,"Kit Supervivencia7",10000,"./assets/image1.png")
 const kit8 = new producto(8,"Kit Supervivencia8",10000,"./assets/image1.png")
 
-const productos = [kit1,kit2,kit3,kit4,kit5,kit6,kit7,kit8];
+const productos = [kit1,Machete,Winchester,kit4,kit5,kit6,kit7,kit8];
 let carrito = [];
 console.log(productos) 
 
@@ -65,7 +65,7 @@ verCarrito.addEventListener("click", () => {
 const mostraCarrito = () => {
     contenedorDeLCarrito.innerHTML = "";
     carrito.forEach(producto => {
-        const card = document.createElement("div")
+        const card = document.createElement("div") 
         card.innerHTML =    `
                 <div id ="card">
                     <img src ="${producto.img}" class = "cardImg"> 
@@ -78,5 +78,17 @@ const mostraCarrito = () => {
                 </div>`
         contenedorDeLCarrito.appendChild(card);
 
+        const boton = document.getElementById(`eliminar${producto.id}`);
+        boton.addEventListener("click", () => {
+            eliminarDelCarrito(producto.id);
+        } )
+
     })
 }  
+const eliminarDelCarrito = (id) => {
+    const producto = carrito.find(producto => producto.id === id);
+    const indice = carrito.indexOf(producto);
+    carrito.splice(indice,1);
+    mostraCarrito();
+
+}   
