@@ -7,19 +7,19 @@ class producto {
         this.nombre = nombre;
         this.precio = precio;
         this.img = img;
-        this.cantidad = 10;
+        this.cantidad = 1;
     }
 }
-const kit1 = new producto(1,"Kit Supervivencia1",10000,"./assets/image1.png")
-const Machete = new producto(2,"Machete Kill Zombie",50000,"./assets/image2.png")
-const Winchester = new producto(3,"Winchester",10000,"./assets/image3.png")
-const kit4 = new producto(4,"Kit Supervivencia4",10000,"./assets/image1.png")
-const kit5 = new producto(5,"Kit Supervivencia5",10000,"./assets/image1.png")
-const kit6 = new producto(6,"Kit Supervivencia6",10000,"./assets/image1.png")
-const kit7 = new producto(7,"Kit Supervivencia7",10000,"./assets/image1.png")
-const kit8 = new producto(8,"Kit Supervivencia8",10000,"./assets/image1.png")
+const kit1 = new producto(1,"Kit Supervivencia1",100000,"./assets/image1.png")
+const Machete = new producto(2,"Machete Kill Zombie",5000,"./assets/image2.png")
+const Winchester = new producto(3,"Winchester",50000,"./assets/image3.png")
+const Colt = new producto(4,"One Shoot Colt",30000,"./assets/image4.png")
+const Gafas = new producto(5,"Gafas de +40% presicion",2000,"./assets/image5.png")
+const AidKit = new producto(6,"Aid Kit",5000,"./assets/image6.png")
+const AntiViral = new producto(7,"Anti Viral",100000,"./assets/image7.png")
+const LolipopAsistans = new producto(8,"Asistencia Lolipop",10000,"./assets/image8.png")
 
-const productos = [kit1,Machete,Winchester,kit4,kit5,kit6,kit7,kit8];
+const productos = [kit1,Machete,Winchester,Colt,Gafas,AidKit,AntiViral,LolipopAsistans];
 let carrito = [];
 console.log(productos) 
 

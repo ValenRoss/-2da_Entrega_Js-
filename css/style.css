@@ -10,9 +10,9 @@ main{
         color: rgb(24, 37, 4);
     }
 }
-#contenedorDeProductos{
+#contenedorDeProductos, #contenedorDelCarrito{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     width: 80%;
     margin: auto;
     height: 100%;
