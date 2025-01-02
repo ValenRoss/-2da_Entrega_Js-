@@ -10,16 +10,16 @@ class producto {
         this.cantidad = 1;
     }
 }
-const kit1 = new producto(1,"Kit Supervivencia1",100000,"./assets/image1.png")
+const kitSuperv = new producto(1,"Kit de Supervivencia",100000,"./assets/image1.png")
 const Machete = new producto(2,"Machete Kill Zombie",5000,"./assets/image2.png")
 const Winchester = new producto(3,"Winchester",50000,"./assets/image3.png")
 const Colt = new producto(4,"One Shoot Colt",30000,"./assets/image4.png")
-const Gafas = new producto(5,"Gafas de +40% presicion",2000,"./assets/image5.png")
+const Gafas = new producto(5,"Gafas de +40% Aim",2000,"./assets/image5.png")
 const AidKit = new producto(6,"Aid Kit",5000,"./assets/image6.png")
 const AntiViral = new producto(7,"Anti Viral",100000,"./assets/image7.png")
 const LolipopAsistans = new producto(8,"Asistencia Lolipop",10000,"./assets/image8.png")
 
-const productos = [kit1,Machete,Winchester,Colt,Gafas,AidKit,AntiViral,LolipopAsistans];
+const productos = [kitSuperv,Machete,Winchester,Colt,Gafas,AidKit,AntiViral,LolipopAsistans];
 let carrito = [];
 console.log(productos) 
 
