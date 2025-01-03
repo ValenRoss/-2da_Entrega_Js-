@@ -31,7 +31,7 @@ h1{
     gap: 40px;
     padding-top: 200px;
 }
-#card{
+.card{
     width: 250px;
     display: flex;
     justify-content: center;

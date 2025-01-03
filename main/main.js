@@ -1,7 +1,7 @@
 
+let carrito = [];  
 
-
-class producto {
+class Producto {
     constructor(id,nombre,precio,img){
         this.id = id;
         this.nombre = nombre;
@@ -10,26 +10,27 @@ class producto {
         this.cantidad = 1;
     }
 }
-const kitSuperv = new producto(1,"Kit de Supervivencia",100000,"./assets/image1.png")
-const Machete = new producto(2,"Machete Kill Zombie",5000,"./assets/image2.png")
-const Winchester = new producto(3,"Winchester",50000,"./assets/image3.png")
-const Colt = new producto(4,"One Shoot Colt",30000,"./assets/image4.png")
-const Gafas = new producto(5,"Gafas de +40% Aim",2000,"./assets/image5.png")
-const AidKit = new producto(6,"Aid Kit",5000,"./assets/image6.png")
-const AntiViral = new producto(7,"Anti Viral",100000,"./assets/image7.png")
-const LolipopAsistans = new producto(8,"Asistencia Lolipop",10000,"./assets/image8.png")
 
-const productos = [kitSuperv,Machete,Winchester,Colt,Gafas,AidKit,AntiViral,LolipopAsistans];
-let carrito = [];
+const kitSuperv = new Producto(1,"Kit de Supervivencia",100000,"./assets/image1.png")
+const Machete = new Producto(2,"Machete Kill Zombie",5000,"./assets/image2.png")
+const Winchester = new Producto(3,"Winchester",50000,"./assets/image3.png")
+const Colt = new Producto(4,"One Shoot Colt",30000,"./assets/image4.png")
+const Gafas = new Producto(5,"Gafas de +40% Aim",2000,"./assets/image5.png")
+const AidKit = new Producto(6,"Aid Kit",5000,"./assets/image6.png")
+const AntiViral = new Producto(7,"Anti Viral",100000,"./assets/image7.png")
+const LolipopAsis = new Producto(8,"Asistencia Lolipop",10000,"./assets/image8.png")
+
+const productos = [kitSuperv,Machete,Winchester,Colt,Gafas,AidKit,AntiViral,LolipopAsis];
+
 console.log(productos) 
 
 const contenedorDeProductos = document.getElementById("contenedorDeProductos")
 
 const mostrarProductos = () => {
-    productos.forEach(producto => {
+    productos.forEach( producto => {
         const card = document.createElement("div")
         card.innerHTML =    `
-                <div id ="card">
+                <div class ="card">
                     <img src ="${producto.img}" class = "cardImg"> 
                     <div class = "cardBody">
                     <h2> ${producto.nombre} </h2>
@@ -55,25 +56,26 @@ const agregarAlCarrito = (id) => {
         carrito.push(producto);
     } 
     console.log(carrito);
+    calcularTotal();
 }
 const contenedorDeLCarrito = document.getElementById("contenedorDelCarrito")
 const verCarrito = document.getElementById("verCarrito")
 
 verCarrito.addEventListener("click", () => {
-    mostraCarrito();
+    mostrarCarrito();
 })
-const mostraCarrito = () => {
+const mostrarCarrito = () => {
     contenedorDeLCarrito.innerHTML = "";
     carrito.forEach(producto => {
         const card = document.createElement("div") 
-        card.innerHTML =    `
-                <div id ="card">
+        card.innerHTML =  `
+                <div class = "card">
                     <img src ="${producto.img}" class = "cardImg"> 
                     <div class = "cardBody">
                     <h2> ${producto.nombre} </h2>
                     <p> $${producto.precio} </p>
                     <p> ${producto.cantidad} </p>
-                    <button id= "boton${producto.id}">Eliminar del Carrito</button>
+                    <button id= "boton${producto.id}">Eliminar del Carrito</button>  
                     </div>
                 </div>`
         contenedorDeLCarrito.appendChild(card);
@@ -89,6 +91,26 @@ const eliminarDelCarrito = (id) => {
     const producto = carrito.find(producto => producto.id === id);
     const indice = carrito.indexOf(producto);
     carrito.splice(indice,1);
-    mostraCarrito();
+    mostrarCarrito();
+
+    const vaciarCarrito = document.getElementById("vaciarCarrito");
+
+    vaciarCarrito.addEventListener("click", () =>{
+        eliminarTodoElCarrito
+    })
+
+    const eliminarTodoElCarrito = () => {
+        carrito = [];
+        mostrarCarrito();
+    }
 
 }   
+const total = document.getElementById("total");
+
+const calcularTotal = () => {
+    let totalCompra = 0;
+    carrito.forEach( producto => {
+        totalCompra += producto.precio * producto.cantidad;
+    })
+    total.innerHTML = `Total $${totalCompra}`;
+}
